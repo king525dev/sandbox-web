@@ -1,0 +1,257 @@
+[
+     {
+          "id": 1,
+          "name": "project",
+          "fullName": "A Random Project",
+          "image": "https://th.bing.com/th/id/OIP.-jEbgdtzqgJ5HQcRfm4pnwHaEK?w=306&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "HTML",
+               "CSS",
+               "Python"
+          ],
+          "author": "king525dev",
+          "class": "application",
+          "active": false
+     },
+     {
+          "id": 2,
+          "name": "weather-app",
+          "fullName": "Weather Tracker Application",
+          "image": "https://picsum.photos/1440/1100",
+          "description": "A user-friendly weather tracking app providing real-time weather data for multiple locations. It uses API integration to fetch current weather conditions and features a sleek, responsive design.",
+          "github": "https://github.com/",
+          "link": "https://weatherapp-demo.com",
+          "download": "",
+          "technology": [
+               "HTML",
+               "CSS",
+               "JavaScript",
+               "React"
+          ],
+          "author": "king525dev",
+          "class": "web-application",
+          "active": true
+     },
+     {
+          "id": 3,
+          "name": "budget-tracker",
+          "fullName": "Personal Budget Tracker",
+          "image": "https://th.bing.com/th/id/OIP.MVW8XGyJxqTzBo9_Tgrn0gHaFj?w=229&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "description": "A personal finance management tool to help users track their income and expenses. The app features graphical data visualization and automated alerts for spending limits.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Python",
+               "Flask",
+               "Bootstrap"
+          ],
+          "author": "king525dev",
+          "class": "application",
+          "active": false
+     },
+     {
+          "id": 4,
+          "name": "portfolio-site",
+          "fullName": "Developer Portfolio Website",
+          "image": "https://picsum.photos/1440/1140",
+          "description": "A personal portfolio website showcasing various projects, blogs, and professional achievements. The site features a clean design with smooth animations and a responsive layout.",
+          "github": "https://github.com/",
+          "link": "https://portfolio-king525dev.com",
+          "download": "",
+          "technology": [
+               "HTML",
+               "CSS",
+               "JavaScript",
+               "Vue.js"
+          ],
+          "author": "king525dev",
+          "class": "website",
+          "active": true
+     },
+     {
+          "id": 5,
+          "name": "task-manager",
+          "fullName": "Task Management Application",
+          "image": "https://picsum.photos/1440/1400",
+          "description": "A productivity tool that allows users to create, manage, and prioritize tasks with an intuitive interface. Includes features like deadline reminders, task categories, and progress tracking.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "https://taskmanager-download.com",
+          "technology": [
+               "JavaScript",
+               "Node.js",
+               "MongoDB"
+          ],
+          "author": "king525dev",
+          "class": "application",
+          "active": true
+     },
+     {
+          "id": 6,
+          "name": "chatbot",
+          "fullName": "AI Customer Support Chatbot",
+          "image": "https://picsum.photos/1440/1024",
+          "description": "An AI-driven chatbot designed to handle common customer queries, provide instant support, and guide users through product troubleshooting. The bot is trained using NLP algorithms and integrates with popular messaging platforms.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Python",
+               "TensorFlow",
+               "Natural Language Processing"
+          ],
+          "author": "king525dev",
+          "class": "application",
+          "active": false
+     },
+     {
+          "id": 7,
+          "name": "ecommerce-platform",
+          "fullName": "E-commerce Platform",
+          "image": "https://th.bing.com/th/id/OIP.VyeGOidyaY2qOUtlJD55BgHaFE?w=288&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+          "description": "An online shopping platform featuring product listings, user accounts, secure payment gateways, and an admin dashboard for managing inventory and orders. The platform provides a seamless shopping experience with a mobile-first design.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "React",
+               "Node.js",
+               "Express",
+               "MongoDB"
+          ],
+          "author": "king525dev",
+          "class": "web-application",
+          "active": true
+     },
+     {
+          "id": 8,
+          "name": "recipe-app",
+          "fullName": "Healthy Recipes App",
+          "image": "https://picsum.photos/1440/1050",
+          "description": "A mobile-friendly recipe application with a wide collection of healthy recipes. Users can search by ingredients, create meal plans, and even get personalized suggestions based on dietary preferences. The app also offers step-by-step cooking instructions with images.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "https://recipeapp-download.com",
+          "technology": [
+               "React Native",
+               "Firebase",
+               "Redux"
+          ],
+          "author": "king525dev",
+          "class": "mobile-application",
+          "active": false
+     },
+     {
+          "id": 9,
+          "name": "portfolio-generator",
+          "fullName": "Automated Portfolio Generator",
+          "image": "https://picsum.photos/1440/1103",
+          "description": "A tool that allows users to generate a professional portfolio by simply providing basic information. It automatically builds a responsive website featuring project galleries, about sections, and contact forms, all with customizable templates.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Vue.js",
+               "Node.js",
+               "SCSS"
+          ],
+          "author": "king525dev",
+          "class": "web-tool",
+          "active": true
+     },
+     {
+          "id": 10,
+          "name": "expense-tracker",
+          "fullName": "Personal Expense Tracker",
+          "image": "https://picsum.photos/1440/1234",
+          "description": "A minimalist expense tracking app designed for quick data entry and clear visualizations. It offers features like budget categories, monthly summaries, and the ability to export data in various formats for financial analysis.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Django",
+               "Bootstrap",
+               "SQLite"
+          ],
+          "author": "king525dev",
+          "class": "application",
+          "active": true
+     },
+     {
+          "id": 11,
+          "name": "language-learning",
+          "fullName": "Language Learning App",
+          "image": "https://picsum.photos/1440/1456",
+          "description": "An interactive language learning application designed to teach new languages using flashcards, quizzes, and audio exercises. The app adapts to the user’s learning pace and tracks progress with in-depth performance analytics.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "https://languageapp-demo.com",
+          "technology": [
+               "Flutter",
+               "Firebase",
+               "TensorFlow"
+          ],
+          "author": "king525dev",
+          "class": "mobile-application",
+          "active": false
+     },
+     {
+          "id": 12,
+          "name": "fitness-tracker",
+          "fullName": "Fitness Tracker App",
+          "image": "https://picsum.photos/1440",
+          "description": "A mobile app designed for tracking workouts, calorie intake, and overall fitness progress. The app includes features like exercise routines, progress charts, and integration with wearable devices.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "https://fitnesstracker.com",
+          "technology": [
+               "React Native",
+               "Firebase",
+               "GraphQL"
+          ],
+          "author": "king525dev",
+          "class": "mobile-application",
+          "active": true
+     },
+     {
+          "id": 13,
+          "name": "movie-review",
+          "fullName": "Movie Review Platform",
+          "image": "https://picsum.photos/1440/1003",
+          "description": "A platform where users can rate and review movies, share their opinions, and discuss films with other users. Includes features like user profiles, trending movies, and personalized recommendations.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Vue.js",
+               "Firebase",
+               "Node.js"
+          ],
+          "author": "king525dev",
+          "class": "web-application",
+          "active": false
+     },
+     {
+          "id": 14,
+          "name": "note-taking",
+          "fullName": "Note Taking App",
+          "image": "https://picsum.photos/1440/1054",
+          "description": "A simple and intuitive note-taking application that allows users to create, categorize, and manage notes. The app includes features like cloud sync, markdown support, and quick search functionality.",
+          "github": "https://github.com/",
+          "link": "",
+          "download": "",
+          "technology": [
+               "Electron",
+               "JavaScript",
+               "SQLite"
+          ],
+          "author": "king525dev",
+          "class": "desktop-application",
+          "active": true
+     }
+]
