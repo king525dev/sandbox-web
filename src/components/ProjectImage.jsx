@@ -3,7 +3,7 @@ import React from 'react'
 const ProjectImage = ({ project }) => {
 
      const headerStyle = {
-          backgroundImage: project.image
+          backgroundImage: `url(${project.image})`
      }
 
      return (

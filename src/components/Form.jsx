@@ -43,6 +43,7 @@ const Form = () => {
                     <input type="text" name="github" id="github" placeholder='Github Link' value={values.github} onChange={set('github')} />
                     <input type="text" name="link" id="link" placeholder='Link' value={values.link} onChange={set('link')} />
                     <input type="text" name="download" id="download" placeholder='Download Link' value={values.download} onChange={set('download')} />
+                    <input type="text" name="docs" id="docs" placeholder='Documentation Link' value={values.docs} onChange={set('docs')} />
                     <input type="text" name="technology" id="technology" placeholder='List Technologies' value={values.technology} onChange={set('technology')} />
                     <input type="text" name="author" id="author" placeholder='Author' value={values.author} onChange={set('author')} />
                     <input type="text" name="class" id="class" placeholder='Class' value={values.class} onChange={set('class')} />
