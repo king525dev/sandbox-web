@@ -29,7 +29,8 @@ const Form = () => {
 
      const upload = async (e) => {
           e.preventDefault();
-          database.uploadData(values)
+          await database.uploadData(values)
+          location.reload()
      }
 
 

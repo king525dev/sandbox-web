@@ -10,7 +10,7 @@ const NavBar = () => {
                     <p>SANDBOX</p>
                </Link>
                <Link
-                    to={`/`}
+                    to={`/home`}
                >
                     <span className='bckBtn'>
                          <i className="fa-solid fa-arrow-left bckArrow"></i>

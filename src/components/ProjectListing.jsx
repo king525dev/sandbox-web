@@ -67,7 +67,7 @@ const ProjectListing = ({obj}) => {
 
      return (
           <Link
-               to={`./project/${project.id}`}
+               to={`/project/${project.id}`}
           >
                <div className="project">
                     <div className="project-image" style={imageStyle}></div>
