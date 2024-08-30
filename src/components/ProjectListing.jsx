@@ -5,16 +5,18 @@ import { FaGithub } from 'react-icons/fa'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import randomColour from '../modules/randomColour'
 
+const colourList = randomColour();
+
 const linkStyles1 = {
-     backgroundColor: randomColour(1)
+     backgroundColor: colourList[0]
 }
 
 const linkStyles2 = {
-     backgroundColor: randomColour(2)
+     backgroundColor: colourList[1]
 }
 
 const linkStyles3 = {
-     backgroundColor: randomColour(3)
+     backgroundColor: colourList[2]
 }
 
 const ProjectListing = ({obj}) => {
