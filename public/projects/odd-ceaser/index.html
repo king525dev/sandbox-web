@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Ceaser Cipher Tool</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #2d2d2d;
+            font-family: 'Ubuntu Mono', monospace;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ffcc00;
+            text-transform: uppercase;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #3a3a3a;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #ffcc00;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+
+        .version,
+        .os,
+        .update-date {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #e0e0e0;
+        }
+
+        .links {
+            margin-top: 40px;
+        }
+
+        .links a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #f5f5f5;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Odd Ceaser Cipher</h1>
+
+    <div class="container">
+        <!-- Version 1.0.0 Box -->
+        <div class="box" onclick="window.location.href='https:/\/king525dev.github.io/odd-ceaser-cipher/dist/v1/oddCeaser-win.exe';">
+            <div class="box-title">Odd Ceaser</div>
+            <div class="version">Version: 1.0.0</div>
+            <div class="os"><i class="fas fa-desktop icon"></i>OS: Windows</div>
+            <div class="update-date">Last Updated: 9th May 2024</div>
+        </div>
+
+        <!-- Version 1.1.0 Box -->
+        <div class="box" onclick="window.location.href='https:/\/king525dev.github.io/odd-ceaser-cipher/dist/OddCeaser.exe';">
+            <div class="box-title">Odd Ceaser</div>
+            <div class="version">Version: 1.1.0</div>
+            <div class="os"><i class="fas fa-desktop icon"></i>OS: Windows</div>
+            <div class="update-date">Last Updated: 30th August 2024</div>
+        </div>
+    </div>
+
+    <!-- Links Section -->
+    <div class="links">
+        <a href="https://github.com/king525dev/odd-ceaser-cipher/releases/tag/v1.1.0" target="_blank"><i class="fas fa-code-branch icon"></i>GitHub Releases</a>
+        <a href="./docs.html"><i class="fas fa-book icon"></i>Documentation</a>
+        <a href="./gallery.html"><i class="fas fa-paint-brush icon"></i>Fan Art</a>
+    </div>
+</body>
+
+</html>

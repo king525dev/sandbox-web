@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Ceaser Fan Art Gallery</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+    <!-- Styles -->
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #2d2d2d;
+            font-family: 'Ubuntu Mono', monospace;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 30px;
+            color: #ffcc00;
+            text-transform: uppercase;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-link {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Odd Gallery</h1>
+
+    <div class="gallery-container">
+        <!-- Gallery Items -->
+        <div class="gallery-item">
+            <img src="./imgs/img-13.png" alt="Fan Art 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-1.jpeg" alt="Fan Art 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-18.png" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-2.jpeg" alt="Fan Art 2">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-15.png" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-3.jpeg" alt="Fan Art 3">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-4.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-5.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-14.png" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-6.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-7.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-8.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-16.png" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-9.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-10.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-11.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-17.png" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/img-12.jpeg" alt="Fan Art 4">
+        </div>
+        <div class="gallery-item">
+            <img src="./imgs/ss.png" alt="Fan Art 1">
+        </div>
+        <div class="gallery-item">
+            <img src="./image.png" alt="Fan Art 1">
+        </div>
+        <!-- Add more images as needed -->
+    </div>
+
+    <a class="back-link" href="./index.html"><i class="fas fa-arrow-left"></i> Back to Downloads</a>
+</body>
+
+</html>
