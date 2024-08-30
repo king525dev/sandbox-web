@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const dataLinkStyle = {
+     color: "#eee"
+}
 
 const Footer = () => {
      return (
@@ -17,9 +22,13 @@ const Footer = () => {
                          </div>
                     </a>
                </div>
-               <small>
-                    &copy;Copyright king525dev
-               </small>
+               <Link
+                    to={`/data`}
+               >
+                    <small style={dataLinkStyle}>
+                         &copy;Copyright king525dev
+                    </small>
+               </Link>
           </footer>
      )
 }
