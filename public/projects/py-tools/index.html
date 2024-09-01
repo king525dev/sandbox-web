@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Simple Python Tools | by @king525dev</title>
+     <!-- Google Fonts (for Ubuntu Mono) -->
+     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+     <!-- Font Awesome -->
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <!-- Styles -->
+     <style>
+          body {
+               background-color: #f2f2f2;
+               font-family: 'Century Gothic', sans-serif;
+               color: #333;
+               margin: 0;
+               padding: 0;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               text-align: center;
+          }
+
+          a{
+               font-style: none;
+          }
+
+          h1 {
+               font-size: 2.5rem;
+               margin-top: 30px;
+               color: #333;
+               /* text-transform: uppercase; */
+          }
+
+          h1 span {
+               display: block;
+               font-size: 1.2rem;
+               color: #4caf50;
+               margin-top: 10px;
+          }
+
+          .tools-grid {
+               display: grid;
+               grid-template-columns: repeat(3,  1fr);
+               gap: 20px;
+               width: 80%;
+               max-width: 1000px;
+               margin: 40px 0;
+          }
+
+          .tool-box {
+               background-color: #ffffff;
+               padding: 20px;
+               border-radius: 10px;
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+               transition: transform 0.3s ease, box-shadow 0.3s ease;
+               height: 200px;
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+          }
+
+          .tool-box:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+          }
+
+          .tool-name {
+               font-size: 1.3rem;
+               font-weight: 700;
+               margin-bottom: 10px;
+               color: #333;
+          }
+
+          .tool-buttons {
+               display: flex;
+               justify-content: center;
+               gap: 10px;
+          }
+
+          .tool-button {
+               background-color: #4caf50;
+               color: white;
+               padding: 10px 15px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 0.9rem;
+               text-decoration-line: none;
+               transition: background-color 0.3s ease;
+          }
+
+          .tool-button:hover {
+               background-color: #45a049;
+          }
+
+          .links {
+               margin-top: 50px;
+          }
+
+          .links a {
+               color: #4caf50;
+               text-decoration: none;
+               font-size: 1rem;
+               margin: 0 15px;
+               transition: color 0.3s ease;
+          }
+
+          .links a:hover {
+               color: #388e3c;
+          }
+
+          footer {
+               margin-top: 80px;
+               padding: 40px 0;
+               background-color: #e9e9e9;
+               width: 100%;
+               text-align: center;
+               font-size: 1.5rem;
+               color: #4caf50;
+          }
+
+          footer a {
+               color: #4caf50;
+               text-decoration: none;
+               transition: color 0.3s ease;
+          }
+
+          footer a:hover {
+               color: #388e3c;
+          }
+
+          footer p {
+               margin: 0;
+          }
+     </style>
+</head>
+
+<body>
+     <h1>Simple Python Tools <span>by @king525dev</span></h1>
+
+     <div class="tools-grid">
+          <div class="tool-box">
+               <div class="tool-name">YouTube Video Downloader</div>
+               <div class="tool-buttons">
+                    <a href="https://github.com/king525dev/Simple-Python-Tools/blob/main/YtDownloader/code/ytDownloader.py" class="tool-button">Source Code</a>
+                    <a href="https://king525dev.github.io/Simple-Python-Tools/YtDownloader/ytDownloader.exe" class="tool-button">Download</a>
+               </div>
+          </div>
+          <div class="tool-box">
+               <div class="tool-name">QR Code Generator</div>
+               <div class="tool-buttons">
+                    <a href="https://github.com/king525dev/Simple-Python-Tools/blob/main/qrCodeGenerator/code/qrCodeGenerator.py" class="tool-button">Source Code</a>
+                    <a href="https://king525dev.github.io/Simple-Python-Tools/qrCodeGenerator/qrCodeGenerator.exe" class="tool-button">Download</a>
+               </div>
+          </div>
+          <div class="tool-box">
+               <div class="tool-name">ASCII Art Generator</div>
+               <div class="tool-buttons">
+                    <a href="https://github.com/king525dev/Simple-Python-Tools/blob/main/asciiArtGenerator/code/asciiArtGenerator.py" class="tool-button">Source Code</a>
+                    <a href="https://king525dev.github.io/Simple-Python-Tools/asciiArtGenerator/asciiArtGenerator.exe" class="tool-button">Download</a>
+               </div>
+          </div>
+          <div class="tool-box">
+               <div class="tool-name">PDF Merger</div>
+               <div class="tool-buttons">
+                    <a href="https://github.com/king525dev/Simple-Python-Tools/blob/main/pdfMerger/code/pdfMerger.py" class="tool-button">Source Code</a>
+                    <a href="https://king525dev.github.io/Simple-Python-Tools/pdfMerger/pdfMerger.exe" class="tool-button">Download</a>
+               </div>
+          </div>
+          <div class="tool-box">
+               <div class="tool-name">Number Guessing Game</div>
+               <div class="tool-buttons">
+                    <a href="https://github.com/king525dev/Simple-Python-Tools/blob/main/numberGuesser/code/number-guesser.py" class="tool-button">Source Code</a>
+                    <a href="https://king525dev.github.io/Simple-Python-Tools/numberGuesser/number-guesser.exe" class="tool-button">Download</a>
+               </div>
+          </div>
+     </div>
+
+     <div class="links">
+          <a href="https://king525dev.github.io/Simple-Python-Tools/">Documentation</a>
+          <a href="https://github.com/king525dev/Simple-Python-Tools">GitHub</a>
+     </div>
+
+     <footer>
+          <p><a href="https://github.com/king525dev">@king525dev</a></p>
+     </footer>
+</body>
+
+</html>
