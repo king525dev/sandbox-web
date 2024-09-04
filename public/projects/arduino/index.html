@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Arduino Projects | by @king525dev</title>
+     <!-- Google Fonts (Poppins as the closest match to Arduino) -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+     <!-- Font Awesome -->
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <!-- Styles -->
+     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+     <style>
+          body {
+               background-color: #ffffff;
+               font-family: 'Poppins', sans-serif;
+               color: #333;
+               margin: 0;
+               padding: 0;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               text-align: center;
+          }
+
+          h1 {
+               font-size: 2.5rem;
+               margin-top: 30px;
+               color: #008184;
+               text-transform: uppercase;
+          }
+
+          .projects-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+               gap: 20px;
+               width: 80%;
+               max-width: 1000px;
+               margin: 40px 0;
+          }
+
+          .project-box {
+               background-color: #f1f1f1;
+               padding: 20px;
+               border-radius: 10px;
+               box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+               transition: transform 0.3s ease, box-shadow 0.3s ease;
+               height: 200px;
+               display: flex;
+               flex-direction: column;
+               justify-content: center;
+               cursor: pointer;
+               text-align: center;
+          }
+
+          .project-box:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+          }
+
+          .project-name {
+               font-size: 1.3rem;
+               font-weight: 600;
+               color: #008184;
+          }
+
+          .links {
+               margin-top: 50px;
+          }
+
+          .links a {
+               color: #008184;
+               text-decoration: none;
+               font-size: 1rem;
+               margin: 0 15px;
+               transition: color 0.3s ease;
+          }
+
+          .links a:hover {
+               color: #005f63;
+          }
+
+          footer {
+               height: 50vh;
+               margin-top: 80px;
+               padding: 40px 0;
+               background-color: #e9e9e9;
+               width: 100%;
+               text-align: center;
+               font-size: 2.5rem;
+               display: flex;
+               align-items: center;
+               color: #008184;
+               position: relative;
+          }
+
+          footer p {
+               position: absolute;
+               left: 30%;
+               transform: translateX(-30%);
+               margin: 0;
+          }
+
+          footer a {
+               color: #008184;
+               text-decoration: none;
+               transition: color 0.3s ease;
+          }
+
+          footer a:hover {
+               color: #005f63;
+          }
+     </style>
+</head>
+
+<body>
+     <h1>Arduino Projects ⚡</h1>
+
+     <div class="projects-grid">
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/HelloWorld/HelloWorld.ino';">
+               <div class="project-name">HelloWorld</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/softBlinker/softBlinker.ino';">
+               <div class="project-name">SoftBlinker</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/serialPlotter/serialPlotter.ino';">
+               <div class="project-name">SerialPlotter</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/weatherStation/weatherStation.ino';">
+               <div class="project-name">WeatherStation</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/Accelerometer/Accelerometer.ino';">
+               <div class="project-name">Accelerometer</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/accelerometerPlot/accelerometerPlot.ino';">
+               <div class="project-name">AccelerometerPlot</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/tree/main/projects/buttonOnAndOff';">
+               <div class="project-name">buttonOnAndOff</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/dimmingLED/';">
+               <div class="project-name">dimmingLED</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/lightToggle/lightToggle.ino';">
+               <div class="project-name">lightToggle</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/potentiometerVaryingBlinker/potentiometerVaryingBlinker.ino';">
+               <div class="project-name">potentiometer VaryingBlinker</div>
+          </div>
+          <div class="project-box" onclick="location.href='https:/\/github.com/king525dev/Introduction-to-Arduino/blob/main/projects/serialCommunicationHello/serialCommunicationHello.ino';">
+               <div class="project-name">serial Communication Hello</div>
+          </div>
+     </div>
+
+     <div class="links">
+          <a href="https://github.com/king525dev/Introduction-to-Arduino/blob/main/Insight-into-Electronics-2023.pdf">Documentation</a>
+          <a href="https://github.com/king525dev/Introduction-to-Arduino/">GitHub</a>
+     </div>
+
+     <footer>
+          <p><a href="https://github.com/king525dev">@king525dev</a></p>
+     </footer>
+</body>
+
+</html>
