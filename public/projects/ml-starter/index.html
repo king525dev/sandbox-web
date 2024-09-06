@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ML Starter | by @king525dev</title>
+     <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
+     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+     <!-- Font Awesome -->
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <!-- Styles -->
+     <style>
+          body {
+               background-color: #0d0f16;
+               font-family: 'Roboto Mono', monospace;
+               color: #e0e0e0;
+               margin: 0;
+               padding: 0;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               text-align: center;
+          }
+
+          h1 {
+               font-size: 3rem;
+               margin-top: 40px;
+               color: #21ff8a;
+               text-transform: uppercase;
+               letter-spacing: 0.1rem;
+               position: relative;
+          }
+
+          h1::before {
+               content: "AI PROJECTS";
+               position: absolute;
+               top: -40px;
+               left: 50%;
+               transform: translateX(-50%);
+               font-size: 1rem;
+               color: #21ff8a;
+               opacity: 0.5;
+          }
+
+          .projects-grid {
+               display: grid;
+               grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+               gap: 20px;
+               width: 80%;
+               max-width: 1200px;
+               margin: 40px 0;
+          }
+
+          .project-box {
+               background-color: #15181f;
+               padding: 30px;
+               border-radius: 15px;
+               box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+               transition: transform 0.3s ease, box-shadow 0.3s ease;
+               cursor: pointer;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               font-size: 1.2rem;
+               font-weight: 700;
+               color: #21ff8a;
+               height: 200px;
+          }
+
+          .project-box:hover {
+               transform: translateY(-5px);
+               box-shadow: 0 15px 25px rgba(33, 255, 138, 0.2);
+          }
+
+          .project-box::before {
+               content: "AI";
+               position: absolute;
+               font-size: 8rem;
+               color: rgba(255, 255, 255, 0.05);
+               z-index: 0;
+          }
+
+          .project-name {
+               position: relative;
+               z-index: 1;
+          }
+
+          .links {
+               margin-top: 50px;
+          }
+
+          .links a {
+               color: #21ff8a;
+               text-decoration: none;
+               font-size: 1rem;
+               margin: 0 15px;
+               transition: color 0.3s ease;
+          }
+
+          .links a:hover {
+               color: #16db76;
+          }
+
+          footer {
+               margin-top: 80px;
+               padding: 50px 0;
+               background-color: #13161d;
+               width: 100%;
+               position: relative;
+               text-align: center;
+               color: #21ff8a;
+               font-size: 2.5rem;
+          }
+
+          footer p {
+               position: absolute;
+               left: 30%;
+               transform: translateX(-30%);
+               margin: 0;
+          }
+
+          footer a {
+               color: #21ff8a;
+               text-decoration: none;
+               transition: color 0.3s ease;
+          }
+
+          footer a:hover {
+               color: #16db76;
+          }
+
+          /* Retro Glitch Effect */
+          .project-box:hover .project-name {
+               animation: glitch 0.3s infinite alternate;
+          }
+
+          @keyframes glitch {
+               0% {
+                    text-shadow: 2px 2px red;
+               }
+
+               100% {
+                    text-shadow: -2px -2px blue;
+               }
+          }
+     </style>
+</head>
+
+<body>
+     <h1>Machine Learning Starter Projects</h1>
+
+     <div class="projects-grid">
+          <div class="project-box" onclick="location.href='#';">
+               <div class="project-name">Linear Regression Algorithm</div>
+          </div>
+          <div class="project-box" onclick="location.href='#';">
+               <div class="project-name">HelloWorld</div>
+          </div>
+          <div class="project-box" onclick="location.href='#';">
+               <div class="project-name">FastAI Book</div>
+          </div>
+          <div class="project-box" onclick="location.href='#';">
+               <div class="project-name">Jupyter 101</div>
+          </div>
+     </div>
+
+     <div class="links">
+          <a href="https://github.com/king525dev/intro-to-ML/blob/main/README.md">Documentation</a>
+          <a href="https://github.com/king525dev/intro-to-ML">GitHub</a>
+     </div>
+
+     <footer>
+          <p><a href="https://github.com/king525dev">@king525dev</a></p>
+     </footer>
+</body>
+
+</html>
