@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-sz-theme="obsidian">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Ceasar Cipher v2</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Silicon Zen styles -->
+    <link rel="stylesheet" href="https://king525dev.github.io/silicon-zen/library/sz.css">
+
+    <!-- Cipher engine (browser bundle) -->
+    <script src="https://king525dev.github.io/odd-ceaser-cipher/odd-caesar-web.js"></script>
+
+    <!-- Silicon Zen JS for interactive components (optional, used for toast) -->
+    <script src="https://king525dev.github.io/silicon-zen/library/sz.js" defer></script>
+
+    <style>
+        /* ============================================================
+           ODD CEASAR CIPHER – Polished Retro Terminal UI
+           ============================================================ */
+
+        :root {
+            --encrypt-amber: #FFB86C;
+            --encrypt-amber-dim: #CC8B3D;
+            --decrypt-teal: #5BA8A0;
+            --decrypt-teal-dim: #3D7A74;
+        }
+
+        body {
+            background: var(--sz-bg);
+            color: var(--sz-text);
+            font-family: 'Ubuntu Mono', 'JetBrains Mono', monospace;
+            margin: 0;
+            padding: 2rem 1rem 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1.5;
+        }
+
+        .app-wrapper {
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* ── HEADER ── */
+        .app-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .title-group { flex: 1; }
+        .app-title {
+            font-family: 'Press Start 2P', monospace;
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            color: var(--sz-amber);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0 0 0.4rem;
+            line-height: 1.3;
+            animation: titleFlicker 4s steps(3) infinite;
+        }
+        @keyframes titleFlicker {
+            0%, 99%, 100% { opacity: 1; }
+            99.2% { opacity: 0.6; }
+            99.4% { opacity: 0.2; }
+            99.6% { opacity: 1; }
+        }
+        .app-subtitle {
+            font-family: var(--sz-font-pixel);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: var(--sz-text-dim);
+            margin: 0;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .reset-btn {
+            background: transparent;
+            border: 1px solid var(--sz-border-dim);
+            color: var(--sz-text-dim);
+            font-family: var(--sz-font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .reset-btn:hover {
+            border-color: var(--sz-amber);
+            color: var(--sz-amber);
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid var(--sz-border-dim);
+            margin: 0 0 2rem;
+            opacity: 0.5;
+        }
+
+        /* ── MAIN GRID ── */
+        .cipher-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* ── CARDS ── */
+        .cipher-card {
+            background: var(--sz-surface);
+            border: 2px solid var(--encrypt-amber);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .cipher-card.decrypt { border-color: var(--decrypt-teal); }
+        .cipher-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.6), 0 0 0 2px var(--encrypt-amber);
+        }
+        .cipher-card.decrypt:hover {
+            box-shadow: 0 12px 28px rgba(0,0,0,0.6), 0 0 0 2px var(--decrypt-teal);
+        }
+        .card-header {
+            background: var(--encrypt-amber);
+            color: #0D0D0D;
+            font-family: var(--sz-font-pixel);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--sz-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .decrypt .card-header { background: var(--decrypt-teal); }
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        /* ── FORMS ── */
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .field-group.grow { flex: 1; }
+        .field-label {
+            font-family: var(--sz-font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sz-text-dim);
+        }
+
+        /* Textarea and input separate */
+        textarea {
+            background: var(--sz-surface-alt);
+            border: 1px solid var(--sz-border-dim);
+            border-bottom: 2px solid var(--sz-border);
+            padding: 0.7rem;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--sz-text);
+            resize: vertical;
+            transition: border-color 0.15s;
+            border-radius: 0;
+            outline: none;
+            flex: 1;
+            min-height: 100px;
+        }
+        textarea:focus {
+            border-bottom-color: var(--encrypt-amber);
+        }
+        .decrypt textarea:focus { border-bottom-color: var(--decrypt-teal); }
+
+        input[type="text"] {
+            background: var(--sz-surface-alt);
+            border: 1px solid var(--sz-border-dim);
+            border-bottom: 2px solid var(--sz-border);
+            padding: 0.45rem 0.7rem;
+            font-family: 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--sz-text);
+            transition: border-color 0.15s;
+            border-radius: 0;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-bottom-color: var(--encrypt-amber);
+        }
+        .decrypt input[type="text"]:focus { border-bottom-color: var(--decrypt-teal); }
+
+        /* Inline row for File + Key */
+        .inline-row {
+            display: flex;
+            gap: 1rem;
+        }
+        .inline-row .field-group {
+            flex: 1;
+            min-width: 0;
+        }
+        .file-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .file-btn {
+            background: transparent;
+            border: 1px solid var(--sz-border-dim);
+            color: var(--sz-text-dim);
+            font-family: var(--sz-font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: 0.15s;
+            white-space: nowrap;
+        }
+        .file-btn:hover {
+            border-color: var(--encrypt-amber);
+            color: var(--encrypt-amber);
+        }
+        .decrypt .file-btn:hover {
+            border-color: var(--decrypt-teal);
+            color: var(--decrypt-teal);
+        }
+        .file-name {
+            font-family: var(--sz-font-mono);
+            font-size: 0.7rem;
+            color: var(--sz-teal);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+
+        /* Action button */
+        .action-btn {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            background: var(--encrypt-amber);
+            color: #0D0D0D;
+            font-family: var(--sz-font-pixel);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+            box-shadow: 4px 4px 0 var(--encrypt-amber-dim);
+        }
+        .action-btn:hover {
+            background: var(--encrypt-amber-dim);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--encrypt-amber-dim);
+        }
+        .action-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--encrypt-amber-dim);
+        }
+        .decrypt .action-btn {
+            background: var(--decrypt-teal);
+            box-shadow: 4px 4px 0 var(--decrypt-teal-dim);
+        }
+        .decrypt .action-btn:hover {
+            background: var(--decrypt-teal-dim);
+            box-shadow: 6px 6px 0 var(--decrypt-teal-dim);
+        }
+
+        /* ── OUTPUT TERMINAL ── */
+        .terminal-output {
+            background: var(--sz-cli-bg);
+            border: 1px solid var(--sz-border);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 120px;
+        }
+        .terminal-header {
+            background: var(--sz-surface-alt);
+            padding: 0.4rem 1rem;
+            font-family: var(--sz-font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--sz-text-dim);
+            border-bottom: 1px solid var(--sz-border-dim);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .terminal-body {
+            padding: 0.8rem;
+            flex: 1;
+            overflow-y: auto;
+            font-family: var(--sz-font-mono);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+            color: var(--sz-cli-text);
+            max-height: 200px;
+        }
+        .copy-inside {
+            background: transparent;
+            border: 1px solid var(--sz-border-dim);
+            color: var(--sz-text-dim);
+            font-family: var(--sz-font-mono);
+            font-size: 0.55rem;
+            padding: 0.15rem 0.6rem;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: 0.15s;
+        }
+        .copy-inside:hover {
+            border-color: var(--decrypt-teal);
+            color: var(--decrypt-teal);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 800px) {
+            .cipher-grid { grid-template-columns: 1fr; }
+            .app-header { flex-direction: column; align-items: flex-start; }
+            .header-actions { align-self: flex-end; }
+        }
+
+        /* Drag & drop */
+        .drag-over {
+            border-style: dashed !important;
+            border-color: var(--encrypt-amber) !important;
+        }
+        .decrypt.drag-over { border-color: var(--decrypt-teal) !important; }
+    </style>
+</head>
+<body class="sz-body sz-dither">
+    <div class="dither-bg"></div>
+
+    <div class="app-wrapper">
+        <header class="app-header">
+            <div class="title-group">
+                <h1 class="app-title">Odd Ceaser Cipher</h1>
+                <p class="app-subtitle">v2.0 · king525dev</p>
+            </div>
+            <div class="header-actions">
+                    <button class="reset-btn" id="download-btn" title="Download last result">⬇ Download</button>
+                    <button class="reset-btn" id="reset-all" title="Reset (Ctrl+L)">⟲ Reset</button>
+            </div>
+        </header>
+
+        <hr class="divider" />
+
+        <div class="cipher-grid">
+            <!-- ENCRYPT -->
+            <article class="cipher-card" id="encrypt-card">
+                <div class="card-header">
+                    <span>ENCRYPT</span>
+                    <span>_ □ ×</span>
+                </div>
+                <div class="card-body">
+                    <div class="field-group grow">
+                        <label class="field-label" for="encrypt-text">Input Text</label>
+                        <textarea id="encrypt-text" placeholder="Enter message to encrypt..."></textarea>
+                    </div>
+
+                    <div class="inline-row">
+                        <div class="field-group">
+                            <label class="field-label">File</label>
+                            <div class="file-row">
+                                <button class="file-btn" onclick="document.getElementById('encrypt-file').click()">[ OPEN FILE ]</button>
+                                <span class="file-name" id="encrypt-file-name"></span>
+                                <input type="file" id="encrypt-file" style="display:none;" accept=".txt,.md,.json,.csv,.html,.css,.js,.log,.xml,.yaml,.yml,.ini,.cfg,.env">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="encrypt-key">Key</label>
+                            <input type="text" id="encrypt-key" placeholder="4 digits or word" maxlength="6" class="key-input">
+                        </div>
+                    </div>
+
+                    <button class="action-btn" id="encrypt-btn">[ Encrypt ]</button>
+
+                    <div class="terminal-output" id="encrypt-output-area">
+                        <div class="terminal-header">
+                            <span>OUTPUT</span>
+                            <button class="copy-inside" onclick="copyOutput('encrypt-output-body')">Copy</button>
+                        </div>
+                        <div class="terminal-body" id="encrypt-output-body">Encrypted text will appear here...</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- DECRYPT -->
+            <article class="cipher-card decrypt" id="decrypt-card">
+                <div class="card-header">
+                    <span>DECRYPT</span>
+                    <span>_ □ ×</span>
+                </div>
+                <div class="card-body">
+                    <div class="field-group grow">
+                        <label class="field-label" for="decrypt-text">Input Text</label>
+                        <textarea id="decrypt-text" placeholder="Enter message to decrypt..."></textarea>
+                    </div>
+
+                    <div class="inline-row">
+                        <div class="field-group">
+                            <label class="field-label">File</label>
+                            <div class="file-row">
+                                <button class="file-btn" onclick="document.getElementById('decrypt-file').click()">[ OPEN FILE ]</button>
+                                <span class="file-name" id="decrypt-file-name"></span>
+                                <input type="file" id="decrypt-file" style="display:none;" accept=".txt,.md,.json,.csv,.html,.css,.js,.log,.xml,.yaml,.yml,.ini,.cfg,.env">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="decrypt-key">Key</label>
+                            <input type="text" id="decrypt-key" placeholder="4 digits or word" maxlength="6" class="key-input">
+                        </div>
+                    </div>
+
+                    <button class="action-btn" id="decrypt-btn">[ Decrypt ]</button>
+
+                    <div class="terminal-output" id="decrypt-output-area">
+                        <div class="terminal-header">
+                            <span>OUTPUT</span>
+                            <button class="copy-inside" onclick="copyOutput('decrypt-output-body')">Copy</button>
+                        </div>
+                        <div class="terminal-body" id="decrypt-output-body">Decrypted text will appear here...</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        const encryptText = document.getElementById('encrypt-text');
+        const decryptText = document.getElementById('decrypt-text');
+        const encryptKey  = document.getElementById('encrypt-key');
+        const decryptKey  = document.getElementById('decrypt-key');
+        const encryptFile = document.getElementById('encrypt-file');
+        const decryptFile = document.getElementById('decrypt-file');
+        const encryptFileName = document.getElementById('encrypt-file-name');
+        const decryptFileName = document.getElementById('decrypt-file-name');
+        const encryptOutput = document.getElementById('encrypt-output-body');
+        const decryptOutput = document.getElementById('decrypt-output-body');
+
+        function handleFile(file, textarea, fileNameSpan) {
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => {
+                textarea.value = e.target.result;
+                fileNameSpan.textContent = file.name;
+                if (typeof SZ !== 'undefined') SZ.toast(`Loaded: ${file.name}`, 'ok');
+            };
+            reader.readAsText(file);
+        }
+
+        encryptFile.addEventListener('change', () => handleFile(encryptFile.files[0], encryptText, encryptFileName));
+        decryptFile.addEventListener('change', () => handleFile(decryptFile.files[0], decryptText, decryptFileName));
+
+        ['encrypt-card', 'decrypt-card'].forEach(id => {
+            const card = document.getElementById(id);
+            card.addEventListener('dragover', e => { e.preventDefault(); card.classList.add('drag-over'); });
+            card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+            card.addEventListener('drop', e => {
+                e.preventDefault();
+                card.classList.remove('drag-over');
+                const file = e.dataTransfer.files[0];
+                if (file) {
+                    if (id === 'encrypt-card') handleFile(file, encryptText, encryptFileName);
+                    else handleFile(file, decryptText, decryptFileName);
+                }
+            });
+        });
+
+        function runCipher(mode) {
+            const textEl = mode === 'encrypt' ? encryptText : decryptText;
+            const keyEl  = mode === 'encrypt' ? encryptKey  : decryptKey;
+            const outputEl = mode === 'encrypt' ? encryptOutput : decryptOutput;
+            const text = textEl.value.trim();
+            const key  = keyEl.value.trim() || undefined;
+            if (!text) {
+                if (typeof SZ !== 'undefined') SZ.toast('Please enter text.', 'warn');
+                return;
+            }
+            try {
+                const result = mode === 'encrypt' ? OddCaesar.encrypt(text, key) : OddCaesar.decrypt(text, key);
+                outputEl.textContent = result.out;
+                if (typeof SZ !== 'undefined') SZ.toast(`${mode === 'encrypt' ? 'Encryption' : 'Decryption'} complete.`, 'ok');
+            } catch (err) {
+                outputEl.textContent = 'Error: ' + err.message;
+                if (typeof SZ !== 'undefined') SZ.toast('Cipher error', 'error');
+            }
+        }
+
+        document.getElementById('encrypt-btn').addEventListener('click', () => runCipher('encrypt'));
+        document.getElementById('decrypt-btn').addEventListener('click', () => runCipher('decrypt'));
+
+        window.copyOutput = id => {
+            const el = document.getElementById(id);
+            navigator.clipboard.writeText(el.textContent || '').then(() => {
+                if (typeof SZ !== 'undefined') SZ.toast('Copied!', 'ok');
+            }).catch(() => {
+                if (typeof SZ !== 'undefined') SZ.toast('Could not copy', 'error');
+            });
+        };
+
+        function resetAll() {
+            encryptText.value = '';
+            decryptText.value = '';
+            encryptKey.value = '';
+            decryptKey.value = '';
+            encryptOutput.textContent = 'Encrypted text will appear here...';
+            decryptOutput.textContent = 'Decrypted text will appear here...';
+            encryptFileName.textContent = '';
+            decryptFileName.textContent = '';
+            encryptFile.value = '';
+            decryptFile.value = '';
+            if (typeof SZ !== 'undefined') SZ.toast('All cleared', 'info');
+        }
+
+        document.getElementById('reset-all').addEventListener('click', resetAll);
+
+        document.getElementById('download-btn').addEventListener('click', () => {
+            if (typeof SZ !== 'undefined') SZ.toast('Release coming soon...', 'warn');
+            return;
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                runCipher('encrypt');
+            }
+            if (e.ctrlKey && e.shiftKey && e.key === 'Enter') {
+                e.preventDefault();
+                runCipher('decrypt');
+            }
+            if (e.ctrlKey && e.key === 'l') {
+                e.preventDefault();
+                resetAll();
+            }
+        });
+
+        window.addEventListener('dragover', e => e.preventDefault());
+        window.addEventListener('drop', e => e.preventDefault());
+    </script>
+</body>
+</html>
