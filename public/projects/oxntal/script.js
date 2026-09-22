@@ -6,8 +6,8 @@
     ========================================================== */
     const LINKS = {
         github: "https://github.com/king525dev/ts-cpu",
-        docs: "#",
-        tutorial: "#"
+        docs: "./docs/docs.html",
+        tutorial: "./docs/tutorial.html"
     };
 
     const DEFAULT_SOURCE =
