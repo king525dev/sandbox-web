@@ -1198,7 +1198,7 @@
                 if (total < 80) return;
 
                 // Canvas is 256px + 2px border each side + 8px padding each side
-                const canvasTarget = canvas.width + 4 + 16;   // ≈ 276px
+                const canvasTarget = canvas.width + 4 + 16 + 120;
 
                 // Convert target width into a flex ratio and clamp it so OUTPUT stays usable
                 let ratio = clamp(canvasTarget / total, 0.15, 0.60);
